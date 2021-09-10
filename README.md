@@ -5,5 +5,6 @@
 
 * <a href="https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/" target="_blank" >How to install the unpacked extension in Chrome</a>.
 
-<kbd><img src="img/readme.png"></kbd>
+<kbd><img src="img/readme1.png"></kbd>
 
+<kbd><img src="img/readme2.png"></kbd>
