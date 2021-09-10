@@ -5,4 +5,4 @@
 
 <kbd><img src="img/readme.png"></kbd>
 
-* 
+* <a href="https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/">How to install the unpacked extension in Chrome</a>.
