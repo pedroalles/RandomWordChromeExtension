@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "version": "0.1",
+  "name": "Random Lesson",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "chrome_url_overrides": {
+    "newtab": "page/index.html"
+  }
+}
