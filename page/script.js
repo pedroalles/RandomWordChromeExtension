@@ -3,38 +3,62 @@ console.log('on page/script.js');
 let myFile;
 let filteredFile;
 
-const lessonTitle = document.getElementById('title');
-const lessonMeanings = document.getElementById('meanings');
-const lessonSynonyms = document.getElementById('synonyms');
-const newButton = document.getElementById('new_word');
+const wordElement = document.getElementById('word');
+const meaningsDiv = document.getElementById('meanings');
+const synonymsDiv = document.getElementById('synonyms');
+const antonymDiv = document.getElementById('antonyms');
+const newWordButton = document.getElementById('new_word');
 
 function newWord() {
+
+  antonymDiv.hidden = true;
+  synonymsDiv.hidden = true;
+
   const randomWord = getRandomItem(filteredFile);
   const { WORD, MEANINGS, SYNONYMS, ANTONYMS } = randomWord;
 
   console.log(randomWord);
 
-  lessonTitle.textContent = WORD;
+  wordElement.textContent = WORD;
   placeSynonyms(SYNONYMS);
+  placeAntonym(ANTONYMS);
   placeMeanings(Object.values(MEANINGS));
 }
 
 function placeSynonyms(synonyms) {
-  lessonSynonyms.innerHTML = '';
+  synonymsDiv.innerHTML = '';
 
-  if (synonyms.length > 0) {
+  if (synonyms.length > 1) {
+
+    synonymsDiv.hidden = false;
     const synonymsElement = document.createElement('p');
     synonymsElement.classList.add('synonyms');
 
     const fornatedSynonyms = formatList(synonyms);
 
     synonymsElement.innerHTML = `<span>Synonyms: </span>  ${fornatedSynonyms}`;
-    lessonSynonyms.appendChild(synonymsElement);
+    synonymsDiv.appendChild(synonymsElement);
+  }
+}
+
+function placeAntonym(antonym) {
+  antonymDiv.innerHTML = '';
+
+  if (antonym.length > 0) {
+
+    antonymDiv.hidden = false;
+    const antonymElement = document.createElement('p');
+    antonymElement.classList.add('synonyms');
+
+    const fornatedAntonyms = formatList(antonym);
+
+    antonymElement.innerHTML = `<span>Antonym: </span>  ${fornatedAntonyms}`;
+    antonymDiv.appendChild(antonymElement);
   }
 }
 
 function placeMeanings(meanings) {
-  lessonMeanings.innerHTML = '';
+  meaningsDiv.innerHTML = '';
 
   meanings.forEach(meaning => {
 
@@ -66,7 +90,7 @@ function placeMeanings(meanings) {
       meaningCard.appendChild(examplesElement);
     }
 
-    lessonMeanings.appendChild(meaningCard);
+    meaningsDiv.appendChild(meaningCard);
   });
 }
 
@@ -85,10 +109,8 @@ function randomNumber(length) {
 }
 
 function filterBy(obj, key) {
-  //get words in json
   const words = Object.keys(obj);
   words.forEach(word => {
-    // delete the word if word's meanings array is empty
     if (!Object.keys(obj[word][key]).length > 0) {
       delete obj[word];
     }
@@ -101,7 +123,6 @@ function getRandomItem(obj) {
   const randNum = Math.floor(Math.random() * keys.length);
   const randomKey = keys[randNum];
   const randomItem = obj[randomKey];
-  // console.log(randNum, randomKey);
   return { WORD: [randomKey], ...randomItem };
 }
 
@@ -128,7 +149,7 @@ function getJson(root) {
 
 function start() {
   chrome.runtime.getPackageDirectoryEntry(getJson);
-  newButton.onclick = newWord;
+  newWordButton.onclick = newWord;
 }
 
 start();

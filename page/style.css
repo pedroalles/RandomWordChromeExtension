@@ -62,7 +62,7 @@ p {
   line-height: 1.3rem;
 }
 
-#title {
+#word {
   color: #0077a7;
   padding: 10px;
 }
@@ -73,13 +73,15 @@ p {
 }
 
 #meanings,
-#synonyms {
+#synonyms,
+#antonyms {
   color: white;
   font-size: 16px;
 }
 
 .meaning_card ,
-#synonyms {
+#synonyms,
+#antonyms {
   background-color: #2c2c2c91;
 
   border: 1px solid rgb(36, 36, 36);

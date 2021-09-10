@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "version": "0.1",
   "name": "Random Word",
-  "description": "When a new browser tab is opened the application brings a word randomly from the English vocabulary with its meanings, synonyms, contexts and examples.",
+  "description": "When a new browser tab is opened the application brings a word randomly from the English vocabulary with its meanings, synonyms, contexts, antonym and examples.",
   "icons": {
     "16": "/img/16x16.png",
     "32": "/img/32x32.png",
